@@ -43,7 +43,25 @@ int main()
         return 1;
     }
 
-
+// Input subject names, hours, and levels
+    for (int i = 0; i < numSubjects; i++) {
+    printf("\n\nEnter the name of subject %d: ", i+1);
+    scanf(" %[^\n]", subjects[i]);
+        printf("\n\nEnter the number of hours you wish to allocate to %s (out of %d): \n", subjects[i],total_hours);
+        scanf("%d", &hours[i]);
+        if (hours[i] <= 0 || hours[i] > 24) {
+            printf("\nInvalid number of hours. Please enter a value between (1 and 24).\n");
+            i--; 
+        }
+        printf("\nEnter the difficulty level for %s (1-Easy 2-Medium 3-Hard): ", subjects[i]);
+        scanf("%d", &level[i]);
+    }
+    printf("\nTime Allocation Summary:\n");
+    printf("%-20s %-10s %-10s\n", "Subject", "Hours", "Level");
+    printf("-------------------------------\n");
+    for (int i = 0; i < numSubjects; i++) {
+        printf("%-20s %-10d %-10d\n", subjects[i], hours[i], level[i]);
+        details1(subjects[i], hours[i], level[i]);
 
 
 
