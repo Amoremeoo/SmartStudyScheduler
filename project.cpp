@@ -62,6 +62,39 @@ int main()
     for (int i = 0; i < numSubjects; i++) {
         printf("%-20s %-10d %-10d\n", subjects[i], hours[i], level[i]);
         details1(subjects[i], hours[i], level[i]);
+    }
+    // File handling to save the data
+    FILE *file = fopen("subjects.txt", "w");
+    if (file == NULL) {
+        printf("Error opening file for writing.\n");
+        return 1;
+    }
+    // Save the subjects, hours, and levels to the file
+    for (int i = 0; i < numSubjects; i++) {
+        fprintf(file, "%s %d %d\n", subjects[i], hours[i], level[i]);
+    }
+    fclose(file);
+    printf("Data saved to subjects.txt successfully.\n");
+//    // Reading the data back from the file
+//    printf("\nReading data from subjects.txt:\n");
+//    file = fopen("subjects.txt", "r");
+//    if (file == NULL) {
+//        printf("Error opening file for reading.\n");
+//        return 1;
+//    }
+//    printf("%-20s %-10s %-10s\n", "Subject", "Hours", "Level");
+//    printf("-------------------------------\n");
+//    char subject[50]; 
+//    int hour, lvl;
+//    while (fscanf(file, " %[^\n] %d %d", subject, &hour, &lvl) != EOF) {
+//        printf("%-20s %-10d %-10d\n", subject, hour, lvl);
+//        details1(subject, hour, lvl);
+//    }
+//    fclose(file);
+//    printf(">>>>>>>>>>>>>>****I Hope This Helped***<<<<<<<<<<<<<<<<<\n");
+//    printf(">>>>>>>>>>>>>>****Remember: Consistency is the key to success<<<<<<<<<<<<****");
+    return 0;
+	}
 
 
 
