@@ -1,5 +1,6 @@
 #include <stdio.h>
-const int MAX_SUBJECTS = 10; //used for 10 subjects
+#include <string.h>
+
 void details1(char *subject, int hours, int level) { 
     scanf("%d",&hours);
 	if(hours < 0 || hours > 24) {
@@ -24,26 +25,22 @@ void details1(char *subject, int hours, int level) {
     }
     printf("\tYou wish to study %s for %d hours\n*************>>>No worries I am here to help YOU!<<<<*************\n", subject, hours);
 }
-
-int main()
-{
+int main() {
     int numSubjects;
     int total_hours;
     char subjects[MAX_SUBJECTS][50];
-    int hours[MAX_SUBJECTS];
-    int level[MAX_SUBJECTS];
-    printf("====================== SMART STUDY SCHEDULAR ======================\n\n");
-    printf("\n\nEnter The Total Hours you Wish to study for:");
-    scanf("%d", &total_hours);
+    int hours[MAX_SUBJECTS];        
+    int level[MAX_SUBJECTS];    
+	printf("====================== SMART STUDY SCHEDULAR ======================\n\n");  
+printf("\n\nEnter The Total Hours you Wish to study for:");
+scanf ("%d",&total_hours);
     printf("\n\nEnter the total  number of subjects you are going to study:");
     scanf("%d", &numSubjects);
-    if (numSubjects > MAX_SUBJECTS)
-    {
+    if (numSubjects > MAX_SUBJECTS) {
         printf("\n\nYou can only enter up to %d subjects.\n", MAX_SUBJECTS);
         return 1;
     }
-
-// Input subject names, hours, and levels
+    // Input subject names, hours, and levels
     for (int i = 0; i < numSubjects; i++) {
     printf("\n\nEnter the name of subject %d: ", i+1);
     scanf(" %[^\n]", subjects[i]);
@@ -95,9 +92,3 @@ int main()
 //    printf(">>>>>>>>>>>>>>****Remember: Consistency is the key to success<<<<<<<<<<<<****");
     return 0;
 	}
-
-
-
-
-    return 0;
-}
